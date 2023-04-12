@@ -62,7 +62,7 @@ public class Main {
         Dijkstra d = new Dijkstra(); 
 
 
-        d. shortestPath(g, nodes.get(0), nodes.get(4)); 
+        d. shortestPath(g, nodes.get(0), nodes.get(0)); 
 
        
 

@@ -7,7 +7,6 @@ private int id;
 
 
 private double cost; 
-
 private Node path; 
 
 

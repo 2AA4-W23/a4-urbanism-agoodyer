@@ -2,6 +2,7 @@
 package ca.mcmaster.cas.se2aa4.a4.pathfinder;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
@@ -14,6 +15,8 @@ public class Dijkstra implements ShortestPath {
 
     public List<Edge> shortestPath(Graph g, Node start, Node end) {
 
+
+      
         g.resetNodes(); // Set cost to infinity, path to null
 
         Comparator<Node> compareCost = new Comparator<Node>() {
@@ -46,6 +49,8 @@ public class Dijkstra implements ShortestPath {
                     edge.getDestinationNode().setPath(m);
 
                     queue.add(edge.getDestinationNode());
+
+                 
                 }
 
             }
@@ -64,9 +69,43 @@ public class Dijkstra implements ShortestPath {
         }
         thePath.add(current);
 
+        Collections.reverse(thePath);
+
         System.out.println(thePath.toString());
 
-        return new ArrayList<Edge>();
+  
+
+        // g.getEdgesOfNode(thePath.get(0)); 
+
+
+        List<Edge> edgePath = new ArrayList<Edge>(); 
+
+        for(int i=0; i< thePath.size()-1; i++){
+
+            List<Edge> nodeEdges = g.getEdgesOfNode(thePath.get(i)); 
+
+            for(Edge e : nodeEdges){
+
+
+
+
+                if(e.getDestinationNode().equals(thePath.get(i+1))){
+                    edgePath.add(e); 
+                    break; 
+                }
+            }
+
+           
+
+        }
+
+        System.out.println(edgePath);
+
+        for(Edge e: edgePath){
+            System.out.println(e.getWeight() + " > " + e.getDestinationNode().getId());
+        }
+
+        return edgePath; 
     }
 
 }

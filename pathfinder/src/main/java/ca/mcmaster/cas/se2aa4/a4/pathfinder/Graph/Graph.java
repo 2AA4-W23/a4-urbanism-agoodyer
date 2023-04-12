@@ -56,6 +56,9 @@ public class Graph {
     }
 
 
+    
+
+
     public void resetNodes(){
 
         for(Node node : nodes.keySet()){
@@ -96,10 +99,10 @@ public class Graph {
 
         for(Node n : nodes.keySet()){
             s+=n.getId() + ": { "; 
-            s+= " ||cost "  + n.getCost() + ">>> "  + n.getPath() +"<<<"; 
+            // s+= " ||cost "  + n.getCost() + ">>> "  + n.getPath() +"<<<"; 
           
             for(Edge e : nodes.get(n)){
-                s+= " " + e.getDestinationNode().getId() +" weight:" + e.getWeight(); 
+                s+= " [" + e.getDestinationNode().getId() +": weight:" + e.getWeight() +"] "; 
 
               
             }

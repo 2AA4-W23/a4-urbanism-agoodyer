@@ -9,5 +9,7 @@ import ca.mcmaster.cas.se2aa4.a4.pathfinder.Graph.Node;
 public interface ShortestPath {
 
     public List<Edge> shortestPath(Graph g, Node start, Node end ); 
+
     
 }
+
