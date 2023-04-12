@@ -4,14 +4,14 @@ package ca.mcmaster.cas.se2aa4.a4.pathfinder.Graph;
 
 
 
-public class Edge<T> {
+public class Edge {
 
 private double weight;  
 
-Node<T> destination; 
+Node destination; 
 
 
-public Edge(Node<T> node, double weight){
+public Edge(Node node, double weight){
 
     this.destination = node; 
     this.weight = weight; 
@@ -19,8 +19,14 @@ public Edge(Node<T> node, double weight){
 }
 
 
-public Node<T> getDestinationNode(){
+public Node getDestinationNode(){
     return this.destination; 
+}
+
+
+public double getWeight(){
+
+    return this.weight; 
 }
 
 
