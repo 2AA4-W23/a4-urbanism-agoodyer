@@ -24,7 +24,7 @@ public class GraphicRenderer implements Renderer {
         for (Structs.Segment s: aMesh.getSegmentsList()){
 
           
-            // canvas.setColor(new ColorProperty().extractSegment(s.getPropertiesList()));
+            
             if (new ColorProperty().CheckRiver(s) || new ColorProperty().CheckRoad(s)){
                 canvas.setColor(new ColorProperty().extractSegment(s.getPropertiesList()));
                 canvas.setStroke(new BasicStroke(3));

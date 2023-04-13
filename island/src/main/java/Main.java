@@ -3,6 +3,7 @@ import ca.mcmaster.cas.se2aa4.a3.island.EntryPoint;
 import ca.mcmaster.cas.se2aa4.a3.island.Graph.GraphConverter;
 import ca.mcmaster.cas.se2aa4.a3.island.Graph.RoadNetwork;
 import ca.mcmaster.cas.se2aa4.a4.pathfinder.Dijkstra;
+import ca.mcmaster.cas.se2aa4.a4.pathfinder.Testing.GraphTest;
 import ca.mcmaster.cas.se2aa4.a3.island.Configuration;
 import ca.mcmaster.cas.se2aa4.a2.io.MeshFactory;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
@@ -67,14 +68,25 @@ public class Main {
            seed = config.export(Configuration.SEED).hashCode();
         }
 
+
+        int cities = 10; 
+        if (config.export().containsKey(Configuration.CITIES)){
+           cities = Integer.parseInt(config.export(Configuration.CITIES)); 
+
+        }
+
         Structs.Mesh exported = new MeshFactory().read(config.input());
 
         exported = EntryPoint.meshTest(exported,lakes,rivers,vis,lagoon,Profile, seed ,Shape,height,width);
 
         GraphConverter gc = new GraphConverter(exported); 
 
-        // Dijkstra dj = new Dijkstra(); 
+      
 
+
+        GraphTest graphTest = new GraphTest(); 
+
+        graphTest.TestSuite();
 
         exported = gc.newMesh(); 
 

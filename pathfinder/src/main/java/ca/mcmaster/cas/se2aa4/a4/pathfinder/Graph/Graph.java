@@ -15,7 +15,7 @@ public class Graph {
 
 
 
-    private int vertexCount;
+    private int nodeCount;
     private int edgeCount; 
 
 
@@ -23,6 +23,9 @@ public class Graph {
 
 
     public Graph(){
+
+        nodeCount=0; 
+        edgeCount=0; 
 
       nodes = new HashMap<Node, List<Edge> >();   
 
@@ -34,7 +37,7 @@ public class Graph {
      if(!nodes.containsKey(n)){
 
         nodes.put(n, new LinkedList<Edge>()); 
-        vertexCount++; 
+        nodeCount++; 
      }
 
     }
@@ -76,9 +79,6 @@ public class Graph {
 
     public void addUndirected(Node n1, Node n2, double weight, int id ){
 
-
-    
-
         Edge e2 = new Edge(n2, weight,  id); 
         Edge e1 = new Edge(n1, weight,  id); 
 
@@ -89,23 +89,25 @@ public class Graph {
         n1Edges.add(e2); 
         n2Edges.add(e1); 
 
-
-
+        edgeCount+=2; 
 
     }
 
 
     public int getNodeCount(){
-        return this.vertexCount; 
+        return this.nodeCount; 
     }
 
+    public int getEdgeCount(){
+        return this.edgeCount; 
+    }
 
     public String toString(){
         String s=""; 
 
         for(Node n : nodes.keySet()){
             s+=n.getId() + ": { "; 
-            // s+= " ||cost "  + n.getCost() + ">>> "  + n.getPath() +"<<<"; 
+           
           
             for(Edge e : nodes.get(n)){
                 s+= " [" + e.getDestinationNode().getId() +": weight:" + e.getWeight() +"] "; 

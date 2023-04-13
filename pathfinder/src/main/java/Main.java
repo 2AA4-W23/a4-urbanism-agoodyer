@@ -18,21 +18,7 @@ public class Main {
 
         List<Node> nodes = new ArrayList<Node>(); 
 
-        // for(int i=0; i<10;i++){
-          
-
-        //     nodes.add(new Node(i)); 
-        //     g.addNode(nodes.get(i));
-
-
-        //     if(i>0) g.addUndirected(nodes.get(i), nodes.get(i-1), 1.0);
-
-        // }
-
-
-     
-        
-        // g.addUndirected(nodes.get(3), nodes.get(0), 0);
+      
 
 
 
@@ -49,7 +35,7 @@ public class Main {
             g.addNode(n);
         }
 
-        //g.addUndirected(nodes.get(0), nodes.get(1), 0);
+      
 
         g.addUndirected(nodes.get(0), nodes.get(1), 1.2, 1);
         g.addUndirected(nodes.get(1), nodes.get(2), 2.1, 2);

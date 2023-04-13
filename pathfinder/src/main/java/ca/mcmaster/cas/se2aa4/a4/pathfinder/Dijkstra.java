@@ -13,8 +13,7 @@ import ca.mcmaster.cas.se2aa4.a4.pathfinder.Graph.Node;
 
 public class Dijkstra implements ShortestPath {
 
-    public  List<Edge> shortestPath(Graph g, Node start, Node end) {
-
+    public List<Edge> shortestPath(Graph g, Node start, Node end) {
 
         start.reset();
         end.reset();
@@ -51,67 +50,45 @@ public class Dijkstra implements ShortestPath {
 
                     queue.add(edge.getDestinationNode());
 
-                 
                 }
 
             }
 
         }
 
-        // get specific path
-
+        // Traverse backwards from end to start
         Node current = end;
         List<Node> thePath = new ArrayList<Node>();
 
         while (current != start) {
 
-
-            System.out.println(current.getId());
+        
             thePath.add(current);
             current = current.getPath();
 
-            
         }
         thePath.add(current);
 
         Collections.reverse(thePath);
 
-        // System.out.println(thePath.toString());
+        List<Edge> edgePath = new ArrayList<Edge>();
 
-  
+        for (int i = 0; i < thePath.size() - 1; i++) {
 
-      
+            List<Edge> nodeEdges = g.getEdgesOfNode(thePath.get(i));
 
+            for (Edge e : nodeEdges) {
 
-        List<Edge> edgePath = new ArrayList<Edge>(); 
-
-        for(int i=0; i< thePath.size()-1; i++){
-
-            List<Edge> nodeEdges = g.getEdgesOfNode(thePath.get(i)); 
-
-            for(Edge e : nodeEdges){
-
-
-
-
-                if(e.getDestinationNode().equals(thePath.get(i+1))){
-                    edgePath.add(e); 
-                    break; 
+                if (e.getDestinationNode().equals(thePath.get(i + 1))) {
+                    edgePath.add(e);
+                    break;
                 }
             }
-
-           
 
             g.resetNodes();
         }
 
-        System.out.println(edgePath);
-
-        for(Edge e: edgePath){
-            System.out.println(e.getWeight() + " > " + e.getDestinationNode().getId());
-        }
-
-        return edgePath; 
+        return edgePath;
     }
 
 }

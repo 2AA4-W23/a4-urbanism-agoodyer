@@ -30,6 +30,8 @@ public class Configuration {
 
     public static final String SEED = "seed"; 
 
+    public static final String CITIES = "cities"; 
+
     private CommandLine cli;
 
     public Configuration(String[] args) {
@@ -84,6 +86,10 @@ public class Configuration {
         options.addOption(new Option(HEIGHT, true, "Height of input mesh"));
 
         options.addOption(new Option(SEED, true, "Seed controlling randomness"));
+
+        options.addOption(new Option(CITIES, true, "Number of cities to be generated"));
+
+        
         return options;
     }
 

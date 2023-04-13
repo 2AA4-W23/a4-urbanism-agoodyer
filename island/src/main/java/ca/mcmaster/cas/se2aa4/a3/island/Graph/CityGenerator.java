@@ -11,97 +11,65 @@ import ca.mcmaster.cas.se2aa4.a3.island.MeshAttributes.Tiles;
 
 public class CityGenerator {
 
+    List<Polygon> polygons;
 
-    List<Polygon> polygons; 
+    List<Integer> candidates;
 
-    List<Integer> candidates; 
+    public CityGenerator(Mesh mesh) {
 
+        polygons = mesh.getPolygonsList();
 
+        candidates = getCityCandidates(mesh);
 
-    public CityGenerator(Mesh mesh){
-
-        polygons = mesh.getPolygonsList(); 
-
-        candidates = getCityCandidates(mesh); 
-        
-        
     }
 
-
-
-    List<Integer> getCityCandidates(Mesh mesh){
-
+    List<Integer> getCityCandidates(Mesh mesh) {
 
         List<Integer> locations = new ArrayList<Integer>();
-        
-        
-        for(Polygon p: mesh.getPolygonsList()){
 
+        for (Polygon p : mesh.getPolygonsList()) {
 
-            if(isLandTile(p)){
+            if (isLandTile(p)) {
 
-                for(Integer idx: p.getSegmentIdxsList()){
+                for (Integer idx : p.getSegmentIdxsList()) {
 
-                    Segment s = mesh.getSegments(idx); 
+                    Segment s = mesh.getSegments(idx);
 
-                    locations.add(s.getV1Idx()); 
-
-                    locations.add(s.getV2Idx()); 
-
-
+                    locations.add(s.getV1Idx());
+                    locations.add(s.getV2Idx());
 
                 }
-
 
             }
 
         }
 
-
-        return locations; 
-
+        return locations;
 
     }
 
+    public List<Integer> generateCities(int n) {
 
-    public List<Integer> generateCities(int n){
+        Random r = new Random();
 
+        List<Integer> cityIdxs = new ArrayList<Integer>();
 
-        Random r = new Random(); 
+        for (int i = 0; i < n; i++) {
 
-        List<Integer> cityIdxs = new ArrayList<Integer>(); 
+            cityIdxs.add(candidates.remove(r.nextInt(candidates.size() - 1)));
 
-        for(int i=0; i<n; i++){
-
-
-           cityIdxs.add(candidates.remove(r.nextInt(candidates.size()-1))); 
-            
-      
         }
 
-        return cityIdxs; 
+        return cityIdxs;
 
     }
 
-    private boolean isLandTile(Polygon p){
+    private boolean isLandTile(Polygon p) {
 
+        if (Tiles.getTileType(p).equals("Land"))
+            return true;
+        return false;
 
-
-        if(!Tiles.getTileType(p).equals("Land")) return false; 
-
-        if(Tiles.getTileType(p).equals("Water")) return false; 
-        // if(Tiles.getTileType(p).equals("Lagoon")) return false; 
-        // for (int i: p.getNeighborIdxsList()){
-    
-            
-        //     String type = Tiles.getTileType(polygons.get(i));
-    
-        
-        //     if (type.equals("Water")   || type.equals("Lagoon")){
-        //         return true; 
-        //     }
-        // }
-        return true; 
     }
-    
+
 }
