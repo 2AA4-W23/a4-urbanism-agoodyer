@@ -13,10 +13,11 @@ import ca.mcmaster.cas.se2aa4.a4.pathfinder.Graph.Node;
 
 public class Dijkstra implements ShortestPath {
 
-    public List<Edge> shortestPath(Graph g, Node start, Node end) {
+    public  List<Edge> shortestPath(Graph g, Node start, Node end) {
 
 
-      
+        start.reset();
+        end.reset();
         g.resetNodes(); // Set cost to infinity, path to null
 
         Comparator<Node> compareCost = new Comparator<Node>() {
@@ -64,18 +65,22 @@ public class Dijkstra implements ShortestPath {
 
         while (current != start) {
 
+
+            System.out.println(current.getId());
             thePath.add(current);
             current = current.getPath();
+
+            
         }
         thePath.add(current);
 
         Collections.reverse(thePath);
 
-        System.out.println(thePath.toString());
+        // System.out.println(thePath.toString());
 
   
 
-        // g.getEdgesOfNode(thePath.get(0)); 
+      
 
 
         List<Edge> edgePath = new ArrayList<Edge>(); 
@@ -97,6 +102,7 @@ public class Dijkstra implements ShortestPath {
 
            
 
+            g.resetNodes();
         }
 
         System.out.println(edgePath);

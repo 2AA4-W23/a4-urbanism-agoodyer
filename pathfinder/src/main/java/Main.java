@@ -51,12 +51,12 @@ public class Main {
 
         //g.addUndirected(nodes.get(0), nodes.get(1), 0);
 
-        g.addUndirected(nodes.get(0), nodes.get(1), 1.2);
-        g.addUndirected(nodes.get(1), nodes.get(2), 2.1);
-        g.addUndirected(nodes.get(2), nodes.get(3), 1.6);
-        g.addUndirected(nodes.get(1), nodes.get(3),2.4);
-        g.addUndirected(nodes.get(2), nodes.get(4), 1.5);
-        g.addUndirected(nodes.get(3), nodes.get(4), 1.0);
+        g.addUndirected(nodes.get(0), nodes.get(1), 1.2, 1);
+        g.addUndirected(nodes.get(1), nodes.get(2), 2.1, 2);
+        g.addUndirected(nodes.get(2), nodes.get(3), 1.6, 3);
+        g.addUndirected(nodes.get(1), nodes.get(3),2.4, 4);
+        g.addUndirected(nodes.get(2), nodes.get(4), 1.5, 5);
+        g.addUndirected(nodes.get(3), nodes.get(4), 1.0, 6);
 
 
         Dijkstra d = new Dijkstra(); 
@@ -66,7 +66,7 @@ public class Main {
 
        
 
-        System.out.println(g.toString());
+        // System.out.println(g.toString());
 
 
 

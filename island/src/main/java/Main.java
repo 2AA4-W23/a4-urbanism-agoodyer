@@ -1,5 +1,8 @@
 
 import ca.mcmaster.cas.se2aa4.a3.island.EntryPoint;
+import ca.mcmaster.cas.se2aa4.a3.island.Graph.GraphConverter;
+import ca.mcmaster.cas.se2aa4.a3.island.Graph.RoadNetwork;
+import ca.mcmaster.cas.se2aa4.a4.pathfinder.Dijkstra;
 import ca.mcmaster.cas.se2aa4.a3.island.Configuration;
 import ca.mcmaster.cas.se2aa4.a2.io.MeshFactory;
 import ca.mcmaster.cas.se2aa4.a2.io.Structs;
@@ -67,6 +70,22 @@ public class Main {
         Structs.Mesh exported = new MeshFactory().read(config.input());
 
         exported = EntryPoint.meshTest(exported,lakes,rivers,vis,lagoon,Profile, seed ,Shape,height,width);
+
+        GraphConverter gc = new GraphConverter(exported); 
+
+        // Dijkstra dj = new Dijkstra(); 
+
+
+        exported = gc.newMesh(); 
+
+        RoadNetwork r = new RoadNetwork();
+        
+        exported = r.roadNetwork(exported); 
+        
+
+    
+        // dj.shortestPath(gc.getGraph(), , 212); 
+
 
         new MeshFactory().write(exported, config.export(Configuration.OUTPUT));
     }

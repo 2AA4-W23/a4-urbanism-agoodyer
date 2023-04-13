@@ -22,7 +22,10 @@ public class GraphicRenderer implements Renderer {
         canvas.setStroke(stroke);
         drawPolygons(aMesh,canvas);
         for (Structs.Segment s: aMesh.getSegmentsList()){
-            if (new ColorProperty().CheckRiver(s)){
+
+          
+            // canvas.setColor(new ColorProperty().extractSegment(s.getPropertiesList()));
+            if (new ColorProperty().CheckRiver(s) || new ColorProperty().CheckRoad(s)){
                 canvas.setColor(new ColorProperty().extractSegment(s.getPropertiesList()));
                 canvas.setStroke(new BasicStroke(3));
                 double[] coords = new double[4];

@@ -1,6 +1,8 @@
 ca\mcmaster\cas\se2aa4\a4\pathfinder\Graph\Edge.class
 Main.class
+ca\mcmaster\cas\se2aa4\a4\pathfinder\Dijkstra$1.class
 ca\mcmaster\cas\se2aa4\a4\pathfinder\Graph\Node.class
+ca\mcmaster\cas\se2aa4\a4\pathfinder\Testing\GraphTest.class
 ca\mcmaster\cas\se2aa4\a4\pathfinder\Graph\Graph.class
 ca\mcmaster\cas\se2aa4\a4\pathfinder\Dijkstra.class
 ca\mcmaster\cas\se2aa4\a4\pathfinder\ShortestPath.class

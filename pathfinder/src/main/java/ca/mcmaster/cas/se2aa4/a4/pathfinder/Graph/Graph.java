@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class Graph {
 
@@ -38,6 +39,8 @@ public class Graph {
 
     }
 
+    
+
     public void addEdge(Node n, Edge e){
 
     if(!nodes.containsKey(n)) throw new IllegalArgumentException("Source node does not exist.");
@@ -45,7 +48,7 @@ public class Graph {
 
      List<Edge> edges =  nodes.get(n); 
 
-    
+    edgeCount++; 
      edges.add(e); 
 
     }
@@ -68,20 +71,23 @@ public class Graph {
     }
 
 
-    public void addUndirected(Node n1, Node n2, double weight ){
+
+
+
+    public void addUndirected(Node n1, Node n2, double weight, int id ){
 
 
     
 
-        Edge e2 = new Edge(n2, weight); 
-        Edge e1 = new Edge(n1, weight); 
+        Edge e2 = new Edge(n2, weight,  id); 
+        Edge e1 = new Edge(n1, weight,  id); 
 
 
         List<Edge> n1Edges = nodes.get(n1);
         List<Edge> n2Edges = nodes.get(n2);  
 
         n1Edges.add(e2); 
-         n2Edges.add(e1); 
+        n2Edges.add(e1); 
 
 
 

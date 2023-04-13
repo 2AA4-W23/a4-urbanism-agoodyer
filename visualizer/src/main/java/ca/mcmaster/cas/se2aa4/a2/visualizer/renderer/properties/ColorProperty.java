@@ -39,4 +39,16 @@ public class ColorProperty implements PropertyAccess<Color> {
         return false;
 
     }
+
+
+    public boolean CheckRoad(Structs.Segment s){
+        List<Structs.Property> Props = s.getPropertiesList();
+        for (Structs.Property prop: Props){
+            if(prop.getKey().equals("IsRoad")){
+                return true;
+            }
+        }
+        return false;
+
+    }
 }
