@@ -1,60 +1,54 @@
-package ca.mcmaster.cas.se2aa4.a4.pathfinder.Graph; 
+package ca.mcmaster.cas.se2aa4.a4.pathfinder.Graph;
 
+/*
+ * 
+ * Node class to represent graph nodes 
+ * Contains an integer id to identify itself
+ * Stores data to compute shortest path
+ * 
+ */
 public class Node {
-    
 
-private int id; 
+    private int id;
 
+    private double cost;
+    private Node path;
 
-private double cost; 
-private Node path; 
+    public Node(int id) {
 
+        this.id = id;
 
-public Node(int id){
-    
-this.id = id;
+        this.cost = Double.MAX_VALUE;
+    }
 
-this.cost = Double.MAX_VALUE; 
-}    
+    public int getId() {
+        return this.id;
 
+    }
 
+    public void setCost(double cost) {
+        this.cost = cost;
+    }
 
+    public void reset() {
+        this.cost = Double.MAX_VALUE;
+        this.path = null;
+    }
 
+    public double getCost() {
+        return this.cost;
+    }
 
-public int getId(){
-    return this.id; 
+    public Node getPath() {
+        return this.path;
+    }
 
-}
+    public void setPath(Node node) {
+        this.path = node;
+    }
 
-
-public void setCost(double cost){
-    this.cost = cost; 
-}
-
-public void reset(){
-    this.cost = Double.MAX_VALUE; 
-    this.path = null; 
-}
-
-
-public double getCost(){
-    return this.cost; 
-}
-
-
-public Node getPath(){
-    return this.path; 
-}
-
-public void setPath(Node node){
-    this.path = node; 
-}
-
-
-
-public String toString(){
-    return ""+this.id;
-}
-
+    public String toString() {
+        return "" + this.id;
+    }
 
 }

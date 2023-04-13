@@ -17,10 +17,12 @@ import ca.mcmaster.cas.se2aa4.a4.pathfinder.Graph.Node;
 
 public class RoadNetwork {
 
-    public Mesh roadNetwork(Mesh mesh) {
+    public Mesh roadNetwork(Mesh mesh, int cityCount) {
+
+        if(cityCount<=0) return  Mesh.newBuilder(mesh).build(); 
 
         CityGenerator cityGenerator = new CityGenerator(mesh);
-        List<Integer> cities = cityGenerator.generateCities(8);
+        List<Integer> cities = cityGenerator.generateCities(cityCount);
 
         GraphConverter graphConverter = new GraphConverter(mesh);
 

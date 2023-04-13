@@ -51,60 +51,60 @@ public class GraphConverter {
         return this.nodes;
     }
 
-    public Mesh newMesh() {
+    // public Mesh newMesh() {
 
-        Dijkstra d = new Dijkstra();
+    //     Dijkstra d = new Dijkstra();
 
-        Node n1 = nodes.get(0);
+    //     Node n1 = nodes.get(0);
 
-        for (Node n : nodes) {
-            n1 = n;
-            if (graph.getEdgesOfNode(n).size() > 0) {
-                break;
-            }
+    //     for (Node n : nodes) {
+    //         n1 = n;
+    //         if (graph.getEdgesOfNode(n).size() > 0) {
+    //             break;
+    //         }
 
-        }
+    //     }
 
-        Node n2 = nodes.get(0);
-        for (Node n : nodes) {
-            n2 = n;
-            if (graph.getEdgesOfNode(n).size() > 0 && !n2.equals(n1)) {
-                break;
-            }
+    //     Node n2 = nodes.get(0);
+    //     for (Node n : nodes) {
+    //         n2 = n;
+    //         if (graph.getEdgesOfNode(n).size() > 0 && !n2.equals(n1)) {
+    //             break;
+    //         }
 
-        }
+    //     }
 
-        List<Edge> path = d.shortestPath(graph, n1, n2);
+    //     List<Edge> path = d.shortestPath(graph, n1, n2);
 
-        List<Integer> idxs = new ArrayList<Integer>();
-        for (Edge e : path) {
-            idxs.add(e.getId());
-        }
+    //     List<Integer> idxs = new ArrayList<Integer>();
+    //     for (Edge e : path) {
+    //         idxs.add(e.getId());
+    //     }
 
-        List<Segment> oldSegments = mesh.getSegmentsList();
-        List<Segment> segments = new ArrayList<Segment>();
+    //     List<Segment> oldSegments = mesh.getSegmentsList();
+    //     List<Segment> segments = new ArrayList<Segment>();
 
-        for (int i = 0; i < oldSegments.size(); i++) {
+    //     for (int i = 0; i < oldSegments.size(); i++) {
 
-            Property road = Property.newBuilder().setKey("IsRoad").setValue("True").build();
-            Property color = Property.newBuilder().setKey("rgb_color").setValue("255,255,0").build();
+    //         Property road = Property.newBuilder().setKey("IsRoad").setValue("True").build();
+    //         Property color = Property.newBuilder().setKey("rgb_color").setValue("255,255,0").build();
 
-            if (idxs.contains(i))
-                color = Property.newBuilder().setKey("rgb_color").setValue("0,0,0").build();
+    //         if (idxs.contains(i))
+    //             color = Property.newBuilder().setKey("rgb_color").setValue("0,0,0").build();
 
-            Segment s = Segment.newBuilder(oldSegments.get(i)).addAllProperties(oldSegments.get(i).getPropertiesList())
-                    .build();
+    //         Segment s = Segment.newBuilder(oldSegments.get(i)).addAllProperties(oldSegments.get(i).getPropertiesList())
+    //                 .build();
 
-            if (idxs.contains(i)) {
-                s = Segment.newBuilder(oldSegments.get(i)).addProperties(color).addProperties(road).build();
-            }
-            segments.add(s);
-        }
+    //         if (idxs.contains(i)) {
+    //             s = Segment.newBuilder(oldSegments.get(i)).addProperties(color).addProperties(road).build();
+    //         }
+    //         segments.add(s);
+    //     }
 
-        return Mesh.newBuilder().addAllVertices(mesh.getVerticesList()).addAllSegments(segments)
-                .addAllPolygons(mesh.getPolygonsList()).build();
+    //     return Mesh.newBuilder().addAllVertices(mesh.getVerticesList()).addAllSegments(segments)
+    //             .addAllPolygons(mesh.getPolygonsList()).build();
 
-    }
+    // }
 
     public Graph getGraph() {
         return graph;

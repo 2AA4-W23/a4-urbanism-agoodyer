@@ -88,11 +88,11 @@ public class Main {
 
         graphTest.TestSuite();
 
-        exported = gc.newMesh(); 
+       
 
-        RoadNetwork r = new RoadNetwork();
+        RoadNetwork r = new RoadNetwork( );
         
-        exported = r.roadNetwork(exported); 
+        exported = r.roadNetwork(exported, cities); 
         
 
     

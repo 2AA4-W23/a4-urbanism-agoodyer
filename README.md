@@ -1,6 +1,6 @@
 # A3 Island Generation Simulator
 
-  - Author: "" <EMAIL>
+  - Author: "Aidan Goodyer" <goodyera@mcmaster.ca>
   - Author: "Jeremy Orr" <orrj4@mcmaster.ca>
   - Author: "Nathan Perry" <perryn1@mcmaster.ca>
 
@@ -28,6 +28,8 @@ java -jar island/island.jar -i (mesh to be read in) -o (mesh to be outputted and
 -rivers (arg) -> specify number of rivers (int)
 -s (arg) -> shape of island (Circle, irregular(default), Square)
 -help -> prints help options
+
+-cities -> specify the number of cities
 Note: if you do not specify a width and height, it will asume the mesh size is 1920x1080.
 Another Note: 1920x1080 are also the dimensions which will produce the richest, most realistic island.
 

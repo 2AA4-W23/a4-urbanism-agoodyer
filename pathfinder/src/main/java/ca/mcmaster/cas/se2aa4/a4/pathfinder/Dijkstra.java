@@ -11,6 +11,12 @@ import ca.mcmaster.cas.se2aa4.a4.pathfinder.Graph.Edge;
 import ca.mcmaster.cas.se2aa4.a4.pathfinder.Graph.Graph;
 import ca.mcmaster.cas.se2aa4.a4.pathfinder.Graph.Node;
 
+
+/*
+ * An implementation of Dijkstra's algorithm to compute the shortest path in 
+ * a weighted directed graph
+ * 
+ */
 public class Dijkstra implements ShortestPath {
 
     public List<Edge> shortestPath(Graph g, Node start, Node end) {
